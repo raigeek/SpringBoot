@@ -1,0 +1,8 @@
+server:
+  port: 9380
+
+igx:
+  url: http://localIGX.qacorp.moneygram.com/
+
+mappingsBundleName: mappings
+

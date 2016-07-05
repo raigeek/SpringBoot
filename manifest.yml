@@ -1,0 +1,13 @@
+
+server:
+  port: 8081
+
+applications:
+- name: springBoot
+  memory: 256M
+  instances: 1
+  host: rest-service
+  domain: guides.spring.io
+  path: build/libs/springboot.war
+
+

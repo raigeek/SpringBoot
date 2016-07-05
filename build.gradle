@@ -14,14 +14,14 @@ apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
 war {
-    baseName = 'geek-cms'
+    baseName = 'springBoot'
   //  rootSpec.exclude('**/Application.class')
     rootSpec.exclude('test/')
     rootSpec.exclude('functional/')
 }
 
 springBoot {
-    mainClass = "com.mgo.geek.Application"
+    mainClass = "com.raigeek.cos.Application"
 }
 
 
