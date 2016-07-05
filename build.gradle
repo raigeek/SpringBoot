@@ -1,0 +1,54 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
+    }
+}
+
+apply plugin: 'war'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+war {
+    baseName = 'geek-cms'
+  //  rootSpec.exclude('**/Application.class')
+    rootSpec.exclude('test/')
+    rootSpec.exclude('functional/')
+}
+
+springBoot {
+    mainClass = "com.mgo.geek.Application"
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-jersey")
+    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+
+    compile("org.apache.commons:commons-lang3:3.4")
+    compile("net.sf.ehcache:ehcache:2.10.0") {
+        exclude(group: "org.slf4j")
+    }
+    compile("org.springframework:spring-context-support") {
+        exclude(module: 'quartz')
+    }
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('com.jayway.jsonpath:json-path')
+}
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
